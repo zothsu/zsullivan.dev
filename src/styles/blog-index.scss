@@ -1,0 +1,95 @@
+// Blog Index Page Styles
+// Using Tailwind utilities with SCSS features
+
+.blog-index {
+  // Red background for the blog page using Tailwind
+  @apply bg-red-500 min-h-screen;
+  
+  main {
+    max-width: 960px; // Direct CSS since max-w-4xl isn't available
+  }
+
+  .posts-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      width: calc(50% - 1rem);
+
+      * {
+        text-decoration: none;
+        transition: all 0.2s ease-in-out;
+      }
+
+      // Featured post (first item)
+      &:first-child {
+        width: 100%;
+        margin-bottom: 1rem;
+        text-align: center;
+
+        img {
+          width: 100%;
+        }
+
+        .title {
+          font-size: 2.369rem; // Direct CSS instead of text-4xl
+        }
+      }
+
+      img {
+        margin-bottom: 0.5rem;
+        border-radius: 0.75rem; // 12px
+      }
+
+      a {
+        display: block;
+
+        &:hover {
+          .title,
+          .date {
+            color: rgb(var(--accent));
+          }
+
+          img {
+            box-shadow: var(--box-shadow);
+          }
+        }
+      }
+    }
+  }
+
+  .title {
+    margin: 0;
+    line-height: 1;
+    color: rgb(var(--black));
+  }
+
+  .date {
+    margin: 0;
+    color: rgb(var(--gray));
+  }
+
+  // Responsive design
+  @media (max-width: 720px) {
+    .posts-grid {
+      gap: 0.5rem;
+
+      li {
+        width: 100%;
+        text-align: center;
+
+        &:first-child {
+          margin-bottom: 0;
+
+          .title {
+            font-size: 1.563rem; // Direct CSS instead of text-2xl
+          }
+        }
+      }
+    }
+  }
+}
